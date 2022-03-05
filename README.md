@@ -7,21 +7,43 @@
 ## Install
 
 ```bash
+yarn add react-checkbox
+```
+
+```bash
 npm install --save react-checkbox
 ```
 
 ## Usage
 
 ```tsx
-import * as React from 'react'
+import React from 'react';
 
-import { useMyHook } from 'react-checkbox'
+import { useMyHook } from 'react-checkbox';
 
-const Example = () => {
-  const example = useMyHook()
+const App = () => {
+  const options = [
+    { id: 0, title: 'Option 1' },
+    { id: 1, title: 'Option 2' },
+    { id: 2, title: 'Option 3' },
+  ];
+  const { selectedOptions, handleOptionChange } = useCheckbox({ options });
+
   return (
     <div>
-      {example}
+      {options.map((option) => (
+        <div key={option.id}>
+          <label>
+            <input
+              type="checkbox"
+              checked={selectedOptions.includes(option.id)}
+              onChange={(e) => handleOptionChange(option, e.target.checked)}
+            />
+            {option.title}
+          </label>
+          <br />
+        </div>
+      ))}
     </div>
   )
 }
