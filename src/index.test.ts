@@ -1,5 +1,5 @@
-import { useMyHook } from './'
-import { renderHook, act } from "@testing-library/react-hooks";
+import { useMyHook } from './';
+import { renderHook, act } from '@testing-library/react-hooks';
 
 // mock timer using jest
 jest.useFakeTimers();
@@ -25,5 +25,5 @@ describe('useMyHook', () => {
 
     // Check after total 2 sec
     expect(result.current).toBe(2);
-  })
-})
+  });
+});
