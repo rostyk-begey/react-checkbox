@@ -34,6 +34,8 @@
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-typescript": "^5.0.2",
     "@rollup/plugin-url": "^5.0.1",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "@testing-library/react-hooks": "^3.2.1",
     "@types/jest": "^23.3.13",
     "@types/react": "^16.7.22",
@@ -56,10 +58,17 @@
     "react-test-renderer": "^16.9.0",
     "rollup": "^2.26.9",
     "rollup-plugin-peer-deps-external": "^2.2.0",
+    "semantic-release": "^19.0.2",
     "tslib": "^2.0.1",
     "typescript": "^3.2.4"
   },
   "lint-staged": {
     "**/*.{ts,tsx,json}": "eslint --cache"
-  }
+  },
+  "collectCoverageFrom": [
+    "**/*.{ts,tsx}",
+    "src/**/*.{ts,tsx}",
+    "!**/*.d.ts",
+    "!**/node_modules/**"
+  ]
 }
