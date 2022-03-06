@@ -1,4 +1,4 @@
-export type CheckboxOptionId = number;
+export type CheckboxOptionId = number | string;
 
 export type CheckboxOption<T extends CheckboxOptionId = CheckboxOptionId> = {
   id: T;
