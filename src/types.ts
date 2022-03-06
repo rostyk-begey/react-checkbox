@@ -2,9 +2,8 @@ export type CheckboxOptionId = number;
 
 export type CheckboxOption<T extends CheckboxOptionId = CheckboxOptionId> = {
   id: T;
-  title: string;
   options?: CheckboxOption<T>[];
-};
+} & Record<string | number | symbol, unknown>;
 
 export type HandleOptionChange<T extends CheckboxOptionId = CheckboxOptionId> =
   (options: CheckboxOption<T>, checked: boolean) => void;
