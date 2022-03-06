@@ -5,7 +5,24 @@
 [![codecov](https://codecov.io/gh/neet/react-checkbox-hook/branch/main/graph/badge.svg?token=TH4BNCOPMB)](https://codecov.io/gh/neet/react-checkbox-hook)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+> 
 > A React hook to easily work with checkboxes
+
+
+<p align="center">
+  <a href="https://github.com/rostyk-begey/react-checkbox-hook/tree/master/example">Example</a> |
+  <a href="https://rostyk-begey.github.io/react-checkbox-hook/">Demo</a>
+</p>
+
+### Features
+
+- Controllable API
+- Headless (Bring-your-own-UI)
+- Checkboxes nesting
+- Support of indeterminate checkboxes
+- Out of the box integration with [UI libraries](https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5)
+- [Small size](https://bundlephobia.com/result?p=react-checkbox-hook@latest) and no [dependencies](./package.json)
+
 
 ## Install
 
@@ -17,11 +34,12 @@ yarn add react-checkbox-hook
 npm install --save react-checkbox-hook
 ```
 
-## Usage
+## Quickstart
+
+Learn more in [example](https://github.com/rostyk-begey/react-checkbox-hook/tree/master/example)
 
 ```tsx
 import React from 'react';
-
 import { useCheckbox } from 'react-checkbox-hook';
 
 const App = () => {

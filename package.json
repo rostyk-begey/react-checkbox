@@ -2,6 +2,7 @@
   "name": "react-checkbox-hook",
   "version": "1.0.1",
   "description": "A React hook to easily work with checkboxes",
+  "keywords": ["frontend", "react", "react-hook", "hook", "checkbox"],
   "author": "Rostyslav Behei <rostyk.begey@gmail.com>",
   "license": "MIT",
   "repository": "rostyk-begey/react-checkbox-hook",
