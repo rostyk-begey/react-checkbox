@@ -1,8 +1,8 @@
-# react-checkbox
+# react-checkbox-hook
 
-[![NPM](https://img.shields.io/npm/v/react-checkbox.svg)](https://www.npmjs.com/package/react-checkbox)
-[![CI](https://github.com/rostyk-begey/react-checkbox/actions/workflows/ci.yml/badge.svg)](https://github.com/neet/react-checkbox/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/neet/react-checkbox/branch/main/graph/badge.svg?token=TH4BNCOPMB)](https://codecov.io/gh/neet/react-checkbox)
+[![NPM](https://img.shields.io/npm/v/react-checkbox-hook.svg)](https://www.npmjs.com/package/react-checkbox-hook)
+[![CI](https://github.com/rostyk-begey/react-checkbox-hook/actions/workflows/ci.yml/badge.svg)](https://github.com/neet/react-checkbox-hook/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/neet/react-checkbox-hook/branch/main/graph/badge.svg?token=TH4BNCOPMB)](https://codecov.io/gh/neet/react-checkbox-hook)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 > A React hook to easily work with checkboxes
@@ -10,11 +10,11 @@
 ## Install
 
 ```bash
-yarn add react-checkbox
+yarn add react-checkbox-hook
 ```
 
 ```bash
-npm install --save react-checkbox
+npm install --save react-checkbox-hook
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ npm install --save react-checkbox
 ```tsx
 import React from 'react';
 
-import { useMyHook } from 'react-checkbox';
+import { useCheckbox } from 'react-checkbox-hook';
 
 const App = () => {
   const options = [

@@ -1,13 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const Checkbox = ({
-  children,
-  indeterminate,
-  checked,
-  // expanded,
-  onChange,
-  // onToggleExpand,
-}) => {
+const Checkbox = ({ children, indeterminate, checked, onChange }) => {
   const checkboxRef = useRef();
   useEffect(() => {
     if (checkboxRef.current) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCheckbox } from 'react-checkbox';
+import { useCheckbox } from 'react-checkbox-hook';
 
 import Checkbox from './Checkbox';
 

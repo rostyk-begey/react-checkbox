@@ -1,6 +1,6 @@
 {
-  "name": "react-checkbox-example",
-  "homepage": "https://rostyk-begey.github.io/react-checkbox",
+  "name": "react-checkbox-hook-example",
+  "homepage": "https://rostyk-begey.github.io/react-checkbox-hook",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
@@ -8,7 +8,7 @@
     "react": "link:../node_modules/react",
     "react-dom": "^16.9.0",
     "react-scripts": "^3.0.1",
-    "react-checkbox": "link:.."
+    "react-checkbox-hook": "link:.."
   },
   "scripts": {
     "start": "react-scripts start",

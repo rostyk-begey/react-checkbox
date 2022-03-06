@@ -1,10 +1,10 @@
 {
-  "name": "react-checkbox",
+  "name": "react-checkbox-hook",
   "version": "1.0.0",
   "description": "A React hook to easily work with checkboxes",
   "author": "Rostyslav Behei <rostyk.begey@gmail.com>",
   "license": "MIT",
-  "repository": "rostyk-begey/react-checkbox",
+  "repository": "rostyk-begey/react-checkbox-hook",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
