@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.3...v1.0.4) (2022-03-06)
+
+
+### Bug Fixes
+
+* Update types ([2d5e46f](https://github.com/rostyk-begey/react-checkbox-hook/commit/2d5e46f411c8c53dc4876d5d72c082a2c7c2142a))
+
 ## [1.0.3](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.2...v1.0.3) (2022-03-06)
 
 ## [1.0.2](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.1...v1.0.2) (2022-03-06)
