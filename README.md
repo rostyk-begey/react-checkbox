@@ -20,7 +20,6 @@
 - Headless (Bring-your-own-UI)
 - Checkboxes nesting
 - Support of indeterminate checkboxes
-- Out of the box integration with [UI libraries](https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5)
 - [Small size](https://bundlephobia.com/result?p=react-checkbox-hook@latest) and no [dependencies](./package.json)
 
 
