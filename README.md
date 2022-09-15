@@ -35,7 +35,8 @@ npm install --save react-checkbox-hook
 
 ## Quickstart
 
-Learn more in [example](https://github.com/rostyk-begey/react-checkbox-hook/tree/master/example)
+Learn more in [example](https://github.com/rostyk-begey/react-checkbox-hook/tree/master/example) <br>
+[CodeSandbox](https://codesandbox.io/s/react-checkbox-hook-fc4x90)
 
 ```tsx
 import React from 'react';
