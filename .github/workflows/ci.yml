@@ -15,19 +15,21 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14]
-    env:
-      NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+        node-version: [14, 16]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Get code to get access to custom our actions
+        uses: actions/checkout@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          fetch-depth: 0
 
-      - name: Install dependencies
-        run: yarn install --immutable-cache
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+        with:
+          node-version: ${{ matrix.node_version }}
+
+      - name: Lint
+        run: yarn run lint
 
       - name: Build TypeScript
         run: yarn run build
@@ -36,7 +38,7 @@ jobs:
         run: yarn run test
 
       - name: Codecov
-        uses: codecov/codecov-action@v1.0.15
+        uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
   publish:
@@ -45,11 +47,15 @@ jobs:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       NPM_TOKEN: ${{secrets.NPM_TOKEN}}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Get code to get access to custom our actions
+        uses: actions/checkout@v3
         with:
-          node-version: 14
-      - run: yarn install
-      - run: yarn test
-      - run: yarn build
-      - run: yarn semantic-release
+          fetch-depth: 0
+
+      - name: Install Dependencies
+        uses: ./.github/actions/setup
+
+      - name: Release
+        run: |
+          yarn build
+          yarn semantic-release

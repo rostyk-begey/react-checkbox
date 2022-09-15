@@ -1,2 +1,9 @@
 dist
 node_modules
+build
+coverage
+.github
+.husky
+yarn.lock
+CHANGELOG.md
+README.md
