@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.8...v1.0.9) (2024-01-23)
+
+
+### Bug Fixes
+
+* fix package.json entrypoint mapping ([e703c15](https://github.com/rostyk-begey/react-checkbox-hook/commit/e703c15da2f37a41c148b0c314ebac8271c6128f))
+
 ## [1.0.8](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.7...v1.0.8) (2024-01-23)
 
 ## [1.0.7](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.6...v1.0.7) (2022-09-15)

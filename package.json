@@ -1,6 +1,6 @@
 {
   "name": "react-checkbox-hook",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "Rostyslav Behei <rostyk.begey@gmail.com>",
   "repository": "rostyk-begey/react-checkbox-hook",
   "main": "dist/index.js",
