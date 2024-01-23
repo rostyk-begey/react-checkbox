@@ -1,6 +1,9 @@
-import { act, renderHook } from '@testing-library/react-hooks';
+// @vitest-environment jsdom
+
+import { act, renderHook } from '@testing-library/react';
 import { useCheckbox } from './';
 import { getOptionsIds } from './utils';
+import { expect, describe, it } from 'vitest';
 
 const optionWithChildren = {
   id: 3,
@@ -47,34 +50,34 @@ const optionsIds = getOptionsIds(options);
 describe('useCheckbox', () => {
   it('select option', () => {
     const [allOption] = options;
-    const [option] = allOption.options;
+    const [option] = allOption!.options;
 
     const { result } = renderHook(() => useCheckbox({ options }));
 
     expect(result.current.selectedOptions).toHaveLength(0);
 
     act(() => {
-      result.current.handleOptionChange(option, true);
+      result.current.handleOptionChange(option!, true);
     });
 
-    expect(result.current.selectedOptions).toEqual([option.id]);
-    expect(result.current.indeterminateOptions).toEqual([allOption.id]);
+    expect(result.current.selectedOptions).toEqual([option!.id]);
+    expect(result.current.indeterminateOptions).toEqual([allOption!.id]);
   });
 
   it('unselect option', () => {
     const [allOption] = options;
-    const [option] = allOption.options;
-    const defaultSelectedOptions = [option.id];
+    const [option] = allOption!.options;
+    const defaultSelectedOptions = [option!.id];
 
     const { result } = renderHook(() =>
       useCheckbox({ options, defaultSelectedOptions }),
     );
 
-    expect(result.current.selectedOptions).toEqual([option.id]);
-    expect(result.current.indeterminateOptions).toEqual([allOption.id]);
+    expect(result.current.selectedOptions).toEqual([option!.id]);
+    expect(result.current.indeterminateOptions).toEqual([allOption!.id]);
 
     act(() => {
-      result.current.handleOptionChange(option, false);
+      result.current.handleOptionChange(option!, false);
     });
 
     expect(result.current.selectedOptions).toHaveLength(0);
@@ -96,7 +99,7 @@ describe('useCheckbox', () => {
     expect(expect.arrayContaining(result.current.selectedOptions)).toEqual(
       optionsIds,
     );
-    expect(result.current.indeterminateOptions).toEqual([allOption.id]);
+    expect(result.current.indeterminateOptions).toEqual([allOption!.id]);
   });
 
   it('unselect option with children', () => {
@@ -109,7 +112,7 @@ describe('useCheckbox', () => {
     expect(expect.arrayContaining(result.current.selectedOptions)).toEqual(
       optionsIds,
     );
-    expect(result.current.indeterminateOptions).toEqual([allOption.id]);
+    expect(result.current.indeterminateOptions).toEqual([allOption!.id]);
 
     act(() => {
       result.current.handleOptionChange(optionWithChildren, false);
@@ -128,7 +131,7 @@ describe('useCheckbox', () => {
     expect(result.current.indeterminateOptions).toEqual([]);
 
     act(() => {
-      result.current.handleOptionChange(allOption, true);
+      result.current.handleOptionChange(allOption!, true);
     });
 
     expect(expect.arrayContaining(result.current.selectedOptions)).toEqual(
@@ -151,7 +154,7 @@ describe('useCheckbox', () => {
     expect(result.current.indeterminateOptions).toEqual([]);
 
     act(() => {
-      result.current.handleOptionChange(allOption, false);
+      result.current.handleOptionChange(allOption!, false);
     });
 
     expect(result.current.selectedOptions).toHaveLength(0);

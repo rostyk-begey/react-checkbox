@@ -10,21 +10,12 @@
   ],
   "root": true,
   "env": {
-    "node": false,
-    "jest": true
+    "node": false
   },
   "rules": {
     "import/imports-first": 1,
     "react/prop-types": "off"
   },
-  "overrides": [
-    {
-      "files": ["example/src/*.js", "example/src/*.jsx"],
-      "rules": {
-        "import/no-unresolved": "off"
-      }
-    }
-  ],
   "settings": {
     "react": {
       "version": "detect"

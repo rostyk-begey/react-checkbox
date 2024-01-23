@@ -1,9 +1,4 @@
-import { CheckboxOption, CheckboxOptionId } from './types';
-
-export function arrayEqual<T>(a: T[], b: T[]) {
-  const bSet = new Set(b);
-  return a.length === b.length && a.every((value) => bSet.has(value));
-}
+import { type CheckboxOption, type CheckboxOptionId } from './types';
 
 export function arrayAdd<T>(array: T[], ...items: T[]) {
   return [...new Set([...array, ...items])];
@@ -23,12 +18,12 @@ export const getOptionsIds = (
   options: CheckboxOption[],
 ): CheckboxOptionId[] => {
   return options.reduce(
-    (acc, { id, options: childrenOptions = [] }) => [
+    (acc: CheckboxOptionId[], { id, options: childrenOptions = [] }) => [
       ...acc,
       ...getOptionsIds(childrenOptions),
       id,
     ],
-    [] as CheckboxOptionId[],
+    [],
   );
 };
 

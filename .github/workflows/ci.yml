@@ -11,51 +11,58 @@ on:
 
 jobs:
   test:
-    name: Test on node ${{ matrix.node_version }}
+    name: Test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14, 16]
 
     steps:
-      - name: Get code to get access to custom our actions
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Install Dependencies
-        uses: ./.github/actions/setup
-        with:
-          node-version: ${{ matrix.node_version }}
+      - uses: oven-sh/setup-bun@v1
+
+      - run: bun install
 
       - name: Lint
-        run: yarn run lint
+        run: bun run lint
 
-      - name: Build TypeScript
-        run: yarn run build
+      - name: Build
+        run: bun run build
 
       - name: Run tests
-        run: yarn run test
+        run: bun run test
 
       - name: Codecov
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Check example folder
+        run: |
+          cd example
+          bun install
+          bun run lint
+          bun run build
   publish:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       NPM_TOKEN: ${{secrets.NPM_TOKEN}}
     steps:
-      - name: Get code to get access to custom our actions
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Install Dependencies
-        uses: ./.github/actions/setup
+      - uses: oven-sh/setup-bun@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+
+      - run: bun install
 
       - name: Release
         run: |
-          yarn build
-          yarn semantic-release
+          bun run build
+          bun run semantic-release

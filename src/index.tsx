@@ -1,58 +1,41 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
-import { CheckboxOption, CheckboxOptionId, UseCheckbox } from './types';
+import { useReducer, useEffect, useRef } from 'react';
 import {
-  toggleOption,
-  toggleParentOptions,
-  toggleChildrenOptions,
-} from './utils';
+  type CheckboxOption,
+  type CheckboxOptionId,
+  type UseCheckboxProps,
+  type UseCheckboxValue,
+} from './types';
+import { initialState, reducer } from './state';
 
-export const useCheckbox: UseCheckbox = ({
+export const useCheckbox = <T extends CheckboxOptionId = CheckboxOptionId>({
   options,
   defaultSelectedOptions = [],
-}) => {
+}: UseCheckboxProps<T>): UseCheckboxValue<T> => {
   const _defaultSelectedOptions = useRef(defaultSelectedOptions);
-  const [selectedOptions, setSelectedOptions] = useState<CheckboxOptionId[]>(
-    [],
-  );
-  const [indeterminateOptions, setIndeterminateOptions] = useState<
-    CheckboxOptionId[]
-  >([]);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const {
-      selectedOptions: newSelectedOptions,
-      indeterminateOptions: newIndeterminateOptions,
-    } = toggleParentOptions(defaultSelectedOptions, options);
-
-    setSelectedOptions(newSelectedOptions);
-    setIndeterminateOptions(newIndeterminateOptions);
+    dispatch({
+      type: 'SET_OPTIONS',
+      payload: {
+        options,
+        defaultSelectedOptions,
+      },
+    });
 
     _defaultSelectedOptions.current = defaultSelectedOptions;
   }, [defaultSelectedOptions === _defaultSelectedOptions.current]);
 
-  const handleOptionChange = useCallback(
-    (option: CheckboxOption, checked: boolean) => {
-      let indeterminateOptions: CheckboxOptionId[] = [];
-      let newSelectedOptions = selectedOptions;
-
-      newSelectedOptions = toggleOption(newSelectedOptions, option, checked);
-      newSelectedOptions = toggleChildrenOptions(
-        newSelectedOptions,
-        option,
-        checked,
-      );
-      ({ selectedOptions: newSelectedOptions, indeterminateOptions } =
-        toggleParentOptions(newSelectedOptions, options));
-
-      setSelectedOptions(newSelectedOptions);
-      setIndeterminateOptions(indeterminateOptions);
-    },
-    [options, selectedOptions],
-  );
+  const handleOptionChange = (option: CheckboxOption, checked: boolean) => {
+    dispatch({
+      type: 'CHANGE_OPTION',
+      payload: { option, options, checked },
+    });
+  };
 
   return {
-    selectedOptions,
-    indeterminateOptions,
+    selectedOptions: state.selectedOptions,
+    indeterminateOptions: state.indeterminateOptions,
     handleOptionChange,
   };
 };

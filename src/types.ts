@@ -19,7 +19,3 @@ export type UseCheckboxValue<T extends CheckboxOptionId = CheckboxOptionId> = {
   indeterminateOptions: CheckboxOptionId[];
   handleOptionChange: HandleOptionChange<T>;
 };
-
-export type UseCheckbox<T extends CheckboxOptionId = CheckboxOptionId> = (
-  props: UseCheckboxProps<T>,
-) => UseCheckboxValue<T>;
