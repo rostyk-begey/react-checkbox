@@ -10,16 +10,22 @@ on:
       - '*'
 
 jobs:
-  test:
-    name: Test
+  publish:
     runs-on: ubuntu-latest
-
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      NPM_TOKEN: ${{secrets.NPM_TOKEN}}
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - uses: oven-sh/setup-bun@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
 
       - run: bun install
 
@@ -43,24 +49,6 @@ jobs:
           bun install
           bun run lint
           bun run build
-  publish:
-    runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - uses: oven-sh/setup-bun@v1
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "lts/*"
-
-      - run: bun install
 
       - name: Release
         run: |
