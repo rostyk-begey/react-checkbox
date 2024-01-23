@@ -4,7 +4,7 @@
   "author": "Rostyslav Behei <rostyk.begey@gmail.com>",
   "repository": "rostyk-begey/react-checkbox-hook",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "module": "dist/index.cjs",
   "types": "dist/index.d.ts",
   "type": "module",
   "description": "A React hook to easily work with checkboxes",
