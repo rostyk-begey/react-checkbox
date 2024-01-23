@@ -1,3 +1,5 @@
+## [1.0.8](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.7...v1.0.8) (2024-01-23)
+
 ## [1.0.7](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.6...v1.0.7) (2022-09-15)
 
 ## [1.0.6](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.5...v1.0.6) (2022-09-15)
