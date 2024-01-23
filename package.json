@@ -3,10 +3,9 @@
   "version": "1.0.11",
   "author": "Rostyslav Behei <rostyk.begey@gmail.com>",
   "repository": "rostyk-begey/react-checkbox-hook",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "type": "module",
   "description": "A React hook to easily work with checkboxes",
   "license": "MIT",
   "engines": {
