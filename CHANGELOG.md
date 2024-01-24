@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.12...v1.0.13) (2024-01-24)
+
+
+### Bug Fixes
+
+* remove react from dependencies ([0362840](https://github.com/rostyk-begey/react-checkbox-hook/commit/036284072f95deccb75378cc2fd5b29e7248e72b))
+
 ## [1.0.12](https://github.com/rostyk-begey/react-checkbox-hook/compare/v1.0.11...v1.0.12) (2024-01-23)
 
 
