@@ -45,7 +45,9 @@ jobs:
 
       - name: Check example folder
         run: |
+          bun link
           cd example
+          bun link react-checkbox-hook
           bun install
           bun run lint
           bun run build
