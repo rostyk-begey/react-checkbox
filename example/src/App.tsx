@@ -1,6 +1,6 @@
 import './App.css';
 import Checkbox from './Checkbox.tsx';
-import { useCheckbox } from '../../src';
+import { useCheckbox } from 'react-checkbox-hook';
 
 type Option = { id: number; title: string; options?: Option[] };
 
@@ -76,7 +76,7 @@ function App() {
         {renderOptions(options)}
       </div>
       <div>
-        <h2>Selected ids</h2>
+        <h2>Selected ids:</h2>
         <code>
           <pre>{JSON.stringify(selectedOptions, null, 2)}</pre>
         </code>
